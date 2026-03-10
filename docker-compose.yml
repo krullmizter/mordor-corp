@@ -1,0 +1,45 @@
+services:
+  attacker:
+    container_name: attacker
+    image: krullmizter/mordor-corp:attacker-v1
+    tty: true
+    stdin_open: true
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+          pids: 50
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - public_network
+
+  website:
+    container_name: website
+    image: krullmizter/mordor-corp:website-v1
+    networks:
+      public_network:
+        aliases:
+          - mordor-corp.fi
+          - www.mordor-corp.fi
+      internal_network:
+    ports:
+      - "80:80"
+      - "2222:22"
+
+  db:
+    container_name: db
+    image: krullmizter/mordor-corp:db-v1
+    networks:
+      - internal_network
+
+networks:
+  public_network:
+    name: public
+  internal_network:
+    name: internal
+    internal: true
