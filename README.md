@@ -33,7 +33,7 @@ Om ni lyckas ta er in, prioritera att identifiera kritiska sårbarheter som vi m
 Lycka till, vi räknar med er!
 
 Mvh,
-Annatar
+Sauron
 VD, Mordor Corp
 ```
 
