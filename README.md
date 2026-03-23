@@ -127,16 +127,46 @@ docker compose down
 # Uppdatera containrarna om Docker Hub images blir uppdaterade
 docker compose pull
 
-# Kör ett kommando i en körande container
+# Kör detta kommando i din terminal för att komma åt någon körande container instans
 docker exec -it containers_namn /bin/bash
 
-# Starta ett bash shell i attacker containern (Kali Linux)
+# Kom åt attacker containern (Kali Linux) som körs, och starta ett bash shell
 docker exec -it attacker /bin/bash
 ```
 
-4. Du når Mordor Corp hemsidan:
-   - Från din egen dators webbläsare: `http://localhost`
-   - Från Docker miljöerna: `mordor-corp.fi`
+4. Åtkomst till Mordor Corp hemsidan
+
+Efter att Docker och containrarna körs, så kan du nå kursprojketets hemsida:
+   
+**Från din egen dator**
+
+- Du kan alltid nå hemsidan via: `http://localhost` i din webbläsare
+- Du kan editer host filen på din dator så att du kan använda domännamnet `mordor-corp.fi` i din webbläsare (valfritt men rekommenderat)
+
+⚠️ Hosts-filen skriver över DNS – `mordor-corp.fi` kommer alltid att peka på din localhost så länge denna rad finns kvar.
+
+Om du vill använda ett mer realistiskt domännamn i din webbläsare behöver du lägga till en lokal DNS ändring på din värddator
+
+**Windows**
+1. Öppna följande fil som administratör: `C:\Windows\System32\drivers\etc\hosts`
+2. Lägg till:
+
+```
+127.0.0.1 mordor-corp.fi
+127.0.0.1 www.mordor-corp.fi
+```
+
+**macOS / Linux**
+1. Öppna följande fil: `/etc/hosts`
+2. Lägg till:
+```
+127.0.0.1 mordor-corp.fi
+127.0.0.1 www.mordor-corp.fi
+```
+
+**Från Docker**: `mordor-corp.fi`
+- I alla dina containrar så kan du hänvisa till hemsidan med följande: `http://mordor-corp.fi`, `http://www.mordor-corp.fi`, `website`
+- Exmpelvis: `nmap mordor-corp.fi` kör `nmap`
 
 ## 💥Felsökning
 
