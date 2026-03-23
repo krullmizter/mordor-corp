@@ -137,6 +137,31 @@ Exmpel åtgärder:
 3.  Kör `docker compose up -d`
   - Kommandot går igenom detta repos `docker-compose.yml` fil
   - Detta i sin tur laddar ner Docker alla images, och kör igång containrarna i bakgrunden på din maskin
+  - Då allt är klart så ska du få en liknande output i ditt terminal fönster:
+```
+[+] up 26/26
+ ✔ Image krullmizter/mordor-corp:website-v1  Pulled                                                                                   2.0ss
+ ✔ Image krullmizter/mordor-corp:db-v1       Pulled                                                                                   2.0ss
+ ✔ Image krullmizter/mordor-corp:attacker-v1 Pulled                                                                                   14.8s
+ ✔ Network public                            Created                                                                                  0.0s
+ ✔ Network internal                          Created                                                                                  0.0s
+ ✔ Container db                              Created                                                                                  7.8s
+ ✔ Container website                         Created                                                                                  7.8s
+ ✔ Container attacker                        Created                                                                                  7.8s
+```
+
+4. Få tillgång till din Kali container: `docker exec -it attacker /bin/bash`
+
+Då öppnas en instans av Docker attacker containern.
+Inuti den kan du köra Linux och vissa Kali kommandon.
+Några fiffga kommandon 😉:
+- nmap
+- sqlmap
+- dirb
+- netcat
+- curl
+- find
+
 4. Få tillgång till Mordor Corp hemsidan
 
 Efter att Docker och containrarna körs, så kan du nå kursprojketets hemsida:
