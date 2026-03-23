@@ -44,6 +44,25 @@ Innan du börjar behöver du ha följande installerat på din dator:
 - **Git** (för att klona och versionshantera uppdateringar av kursprojektet)
 - **Docker** (för att köra labbmiljöerna)
 
+Bra-att-veta Docker kommandon:
+
+```bash
+# Starta containrarna i bakgrunden
+docker compose up -d
+
+# Stanna alla containrar
+docker compose down
+
+# Uppdatera containrarna om Docker Hub images blir uppdaterade
+docker compose pull
+
+# Kör detta kommando i din terminal för att komma åt någon körande container instans
+docker exec -it containers_namn /bin/bash
+
+# Kom åt attacker containern (Kali Linux) som körs, och starta ett bash shell
+docker exec -it attacker /bin/bash
+```
+
 ## ✍️Rapportering
 
 För att nå full poäng krävs en tekniskt detaljerad rapport som följer dessa steg:
@@ -115,26 +134,10 @@ Exmpel åtgärder:
 
 1.  Klona GitHub repon för kursen (https://github.com/krullmizter/mordor-corp) till er dator
 2.  Navigera lokalt till projekt mappen (mordor-corp)
-3.  Kör något av de följande kommandonen:
-
-```bash
-# Starta containrarna
-docker compose up -d
-
-# Stanna containrarna
-docker compose down
-
-# Uppdatera containrarna om Docker Hub images blir uppdaterade
-docker compose pull
-
-# Kör detta kommando i din terminal för att komma åt någon körande container instans
-docker exec -it containers_namn /bin/bash
-
-# Kom åt attacker containern (Kali Linux) som körs, och starta ett bash shell
-docker exec -it attacker /bin/bash
-```
-
-4. Åtkomst till Mordor Corp hemsidan
+3.  Kör `docker compose up -d`
+  - Kommandot går igenom detta repos `docker-compose.yml` fil
+  - Detta i sin tur laddar ner Docker alla images, och kör igång containrarna i bakgrunden på din maskin
+4. Få tillgång till Mordor Corp hemsidan
 
 Efter att Docker och containrarna körs, så kan du nå kursprojketets hemsida:
    
