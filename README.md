@@ -254,6 +254,6 @@ Max poäng: **60p**
 | Typ                                                                | Poäng |
 | ------------------------------------------------------------------ | ----- |
 | Rapportens kvalitet och innehåll (struktur, metodik och tydlighet) | 30    |
-| Total Systemkontroll / Root pwnd (`root.txt`)                      | 10    |
-| Hittat alla andra CTF flaggor                                      | 10    |
+| Total Systemkontroll / Root pwnd flagga (`root.txt`)               | 10    |
+| Hittat alla andra CTF flaggor (6st)                                | 10    |
 | Säkerhetsåtgärder (remediation)                                    | 10    |
